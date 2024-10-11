@@ -11,6 +11,7 @@ public class Main {
         //cosas.caracteres();
 
         bateria1u2 bateria = new bateria1u2();
-        bateria.ejer2();
+        bateria.ejer3();
+
     }
 }

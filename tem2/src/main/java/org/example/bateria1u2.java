@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class bateria1u2 {
 
     public void ejer1(){
@@ -39,10 +42,70 @@ public class bateria1u2 {
 
     public void ejer3(){
 
-        int n = 123456;
-        int m = 2;
-        
+        Scanner teclado = new Scanner(System.in);
+        boolean err = true;
+        int n = 0;
+        int m = 0;
+
+        while (err) {
+            try{
+                System.out.println("Introduce un número...");
+                n = teclado.nextInt();
+
+                System.out.println("Introduce otro número para quitar las cifras al anterior...");
+                m = teclado.nextInt();
+                if (n>m){
+                    err=false;
+                }else{
+                    System.out.println("No se pueden quitar más cifras");
+                }
+            }catch (InputMismatchException e){
+                System.out.println("El formato no es correcto...");
+                teclado.nextLine();
+        }
+
+        String n_string = Integer.toString(n);
+        int tamanyo = n_string.length();
+
+        n_string = n_string.substring(0,n_string.length()-m);
+
+        System.out.println("El número sin las " + m + " cifras es " + n_string);
 
     }
 
+
+
+
+
+    }
+
+    public void ejer4(){
+
+        Scanner teclado = new Scanner (System.in);
+
+        System.out.println("Introduce una frase: ");
+        String frase = teclado.nextLine();
+        frase = " " + frase + " ";
+        //frase = frase.replace(",", " ");
+        frase = frase.replaceAll([^\\p{Alpha}])
+        frase = frase.toLowerCase();
+
+        System.out.println("Introduce una subcadena: ");
+        String subcadena = teclado.nextLine();
+        subcadena = " " + subcadena + " ";
+
+        int fraselength = frase.length();
+        int frasesinsubcadena = frase.replace(subcadena, "").length();
+
+        int division = (fraselength - frasesinsubcadena) / subcadena.length();
+        System.out.println(division);
+
+    }
+
+    public void ejer5(){
+
+
+
+    }
 }
+
